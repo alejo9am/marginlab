@@ -1,0 +1,10 @@
+/config/.env
+/vendor
+/node_modules/
+.env
+configuracion_marginlab.md
+.DS_Store
+.idea/
+.vscode/
+backup/
+/public/index.php
