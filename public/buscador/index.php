@@ -3,6 +3,15 @@
 //VERIFICAR QUE EL USUARIO ESTÁ AUTENTICADO Y CREAR CONEXIÓN A LA BASE DE DATOS PDO
 require_once __DIR__ . "/../../config/bootstrap.php";
 
+// --- HELPER PARA REDIRECCIONES (Puedes mover esto a un functions.php global) ---
+function redirigir($ruta)
+{
+  // Limpiamos la ruta para evitar dobles slashes //
+  $url = BASE_URL . '/' . ltrim($ruta, '/');
+  header("Location: $url");
+  exit();
+}
+
 //OBTENER CODIGOS DE OFERTA DE LA BASE DE DATOS
 $query = "SELECT DISTINCT cod_oferta FROM lineas_oferta";
 $stmt = $pdo->query($query);
@@ -25,44 +34,29 @@ if (isset($_POST['cod_presupuesto'])) {
   $nversiones = sizeof($filaPresupuesto);
 
   if ($nversiones == 0){
-    header("Location: ../error/index.php?cod=notfound");
-    exit();
+    redirigir("errores");
   } elseif($nversiones == 1) {
-    if (1==1) {
-    //if (permitido($depart, $user)){
-
-      if($depart=='VENTAS') {
-        header("Location: ../ventas/index.php?id=$cod_presupuesto&version=0");
-        exit();
-      }
-      else {
-        header("Location: ../compras/index.php?id=$cod_presupuesto&version=0");
-        exit();
-      }
-      
-    } else {
-      header("Location: ../error/index.php?cod=denied");
-      exit();
-    }
+    redirigir("calculadora/index.php?id=$cod_presupuesto&version=0");
   } else {
-    header("Location: select.php?id=$cod_presupuesto");
-    exit();
+    redirigir("select.php?id=$cod_presupuesto");
   }
 
 }
 
-// // Cierre de conexión opcional (PDO se cierra automáticamente al finalizar el script)
-// $pdo = null;
+// Cierre de conexión opcional (PDO se cierra automáticamente al finalizar el script)
+$pdo = null;
 
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-<?php require_once "../templates/head.php" ?>
+  <?php 
+    $title_name = "Buscador de Presupuestos";
+    require_once BASE_DIR . "/public/templates/head.php";
+  ?>
 <body>
 
-    <?php require_once "../templates/header.php" ?>
-
+    <?php require_once BASE_DIR . "/public/templates/header.php" ?>
     <main>
         <section class="sect">
             <form id="formBusqueda" method="post" action="./index.php">
@@ -91,7 +85,7 @@ if (isset($_POST['cod_presupuesto'])) {
 
     </main>
 
-    <?php require_once "../templates/footer.php" ?>
+    <?php require_once BASE_DIR . "/public/templates/footer.php" ?>
     
 </body>
 </html>

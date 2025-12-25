@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Margen</title>
+    <title><?= $title_name ?></title>
 
     <meta name="description" content="Herramienta para hacer estudios de presupuestos,
     permitiendo calcular el margen BSV rápidamente">
