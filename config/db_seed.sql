@@ -16,6 +16,7 @@ CREATE TABLE `lineas_oferta` (
   `linea_oferta` int(11) DEFAULT 0,
   `cod_oferta` bigint(20) DEFAULT NULL,
   `version` int(11) DEFAULT 0,
+  `nombre_version` varchar(100) DEFAULT NULL,
   `proveedor` varchar(50) DEFAULT NULL,
   `cod_art` varchar(50) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
