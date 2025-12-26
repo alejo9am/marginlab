@@ -14,6 +14,9 @@ define('BASE_DIR', dirname(__DIR__));
 // Cargar el autoloader de Composer para poder usar librerías externas
 require_once BASE_DIR . '/vendor/autoload.php';
 
+// Cargar funciones globales
+require_once BASE_DIR . '/config/functions.php';
+
 use Dotenv\Dotenv;
 
 // Cargar las variables del archivo .env

@@ -15,7 +15,7 @@ CREATE TABLE `lineas_oferta` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `linea_oferta` int(11) DEFAULT 0,
   `cod_oferta` bigint(20) DEFAULT NULL,
-  `version` int(11) DEFAULT 0,
+  `version` int(11) DEFAULT 1,
   `nombre_version` varchar(100) DEFAULT NULL,
   `proveedor` varchar(50) DEFAULT NULL,
   `cod_art` varchar(50) DEFAULT NULL,
@@ -85,9 +85,9 @@ VALUES
 
 -- insertar segunda version (version = 1) para el primer presupuesto (lineas con cod_oferta = 123456789)
 INSERT INTO `lineas_oferta`
-(cod_oferta, proveedor, cod_art, descripcion, unidades, precio_venta, descuento_venta, neto_venta, importe_venta, precio_compra, descuento_factura, rappel, documento, cod_cliente, nomb_cliente, referencia, obra, obs_comercial, version)
+(cod_oferta, version, nombre_version, proveedor, cod_art, descripcion, unidades, precio_venta, descuento_venta, neto_venta, importe_venta, precio_compra, descuento_factura, rappel, documento, cod_cliente, nomb_cliente, referencia, obra, obs_comercial)
 VALUES
-(123456789, 'P0000163', '556056400020', 'Panel Aislante Térmico 50mm', 60, 8.00, 12.00, 7.04, 422.40, 4.00, 18.00, 30.00, 987654, 'CLI-001', 'Construcciones Norte S.L.', 'REF-2024-01', 'Reforma Hospital', 'Actualización de precio en segunda versión', 1),
-(123456789, 'P0000636', '556056800015', 'Tubería PVC 110mm', 120, 3.00, 7.00, 2.79, 334.80, 1.40, 12.00, 6.00, 987654, 'CLI-001', 'Construcciones Norte S.L.', 'REF-2024-01', 'Reforma Hospital', 'Actualización de precio en segunda versión', 1);
+(123456789, 2, 'Primeros cambios', 'P0000163', '556056400020', 'Panel Aislante Térmico 50mm', 60, 8.00, 12.00, 7.04, 422.40, 4.00, 18.00, 30.00, 987654, 'CLI-001', 'Construcciones Norte S.L.', 'REF-2024-01', 'Reforma Hospital', 'Actualización de precio en segunda versión'),
+(123456789, 2, 'Primeros cambios', 'P0000636', '556056800015', 'Tubería PVC 110mm', 120, 3.00, 7.00, 2.79, 334.80, 1.40, 12.00, 6.00, 987654, 'CLI-001', 'Construcciones Norte S.L.', 'REF-2024-01', 'Reforma Hospital', 'Actualización de precio en segunda versión');
 
 SET FOREIGN_KEY_CHECKS = 1;

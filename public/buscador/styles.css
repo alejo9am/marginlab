@@ -130,7 +130,7 @@ main{
             max-width: 85%;
             border-radius: 10px;
             border: 1px solid var(--gris5);
-            background-color: var(--gris2);
+            background-color: var(--white);
             padding: 0 3%;
 
             font-family: inherit;
@@ -140,7 +140,6 @@ main{
             &:focus{
                 outline: none;
                 color: var(--black);
-                background-color: var(--white);
             }
         }
 
