@@ -82,4 +82,11 @@ VALUES
 (987654321, 'P0000103', '111011501095', 'Azulejo Blanco Mate 30x60', 45, 12.00, 0.00, 12.00, 540.00, 6.00, 25.00, 12.50, 555666, 'CLI-002', 'Reformas Garcia', 'OBRA-22', 'Chalet La Moraleja', NULL),
 (456123789, 'P0000999', 'ELEC-001', 'Cableado 2.5mm Libre Halógenos', 500, 0.80, 15.00, 0.68, 340.00, 0.35, 40.00, 2.00, 112233, 'CLI-003', 'Electricidad Industrial SA', 'IND-55', 'Nave Logística', 'Pendiente de aprobación técnica');
 
+-- insertar segunda version (version = 1) para el primer presupuesto (lineas con cod_oferta = 123456789)
+INSERT INTO `lineas_oferta`
+(cod_oferta, proveedor, cod_art, descripcion, unidades, precio_venta, descuento_venta, neto_venta, importe_venta, precio_compra, descuento_factura, rappel, documento, cod_cliente, nomb_cliente, referencia, obra, obs_comercial, version)
+VALUES
+(123456789, 'P0000163', '556056400020', 'Panel Aislante Térmico 50mm', 60, 8.00, 12.00, 7.04, 422.40, 4.00, 18.00, 30.00, 987654, 'CLI-001', 'Construcciones Norte S.L.', 'REF-2024-01', 'Reforma Hospital', 'Actualización de precio en segunda versión', 1),
+(123456789, 'P0000636', '556056800015', 'Tubería PVC 110mm', 120, 3.00, 7.00, 2.79, 334.80, 1.40, 12.00, 6.00, 987654, 'CLI-001', 'Construcciones Norte S.L.', 'REF-2024-01', 'Reforma Hospital', 'Actualización de precio en segunda versión', 1);
+
 SET FOREIGN_KEY_CHECKS = 1;
