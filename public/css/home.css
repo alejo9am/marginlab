@@ -1,201 +1,81 @@
-header {
-    justify-content: end;
+/* Estilos exclusivos de la Landing Page */
+
+main.landing {
+  min-height: calc(100vh - 140px);
+  /* Restamos header y footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--white);
 }
 
-header .logo {
-    position: absolute;
-    right: 50%;
-    transform: translateX(50%);
-
-    height: 65%;
-    overflow: visible;
+.hero-section {
+  max-width: 800px;
+  animation: fadeIn 0.8s ease-out;
 }
 
-header .logo path {
-    height: 100%;
+.hero-section h1 {
+  font-size: 3.5rem;
+  color: var(--azul-marginlab);
+  margin-bottom: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
-header .opciones {
-    all: unset;
-    width: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition-duration: 500ms;
+.hero-section h1 span {
+  color: var(--black);
+  /* O un gris oscuro */
 }
 
-header .opciones svg {
-    width: 60%;
-    height: 60%;
-    color: var(--white);
+.hero-section p {
+  font-size: 1.25rem;
+  color: var(--gris5);
+  margin-bottom: 3rem;
+  line-height: 1.6;
 }
 
-header .opciones:hover {
-    cursor: pointer;
-    transform: scale(110%);
+/* Botón CTA (Call To Action) */
+.cta-button {
+  display: inline-block;
+  background: var(--gradient1);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(47, 162, 239, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-header .opciones #dialog-opciones[open] {
-    all: unset;
-    cursor: default;
-    position: absolute;
-    top: 0;
-    right: 265px;
-    transform: translateX(50%) translateY(90px);
-    width: 200px;
-    padding: 20px;
-    background-color: #2fa2ef22;
-    backdrop-filter: blur(20px);
-    border-radius: 10px;
-    border: 2px solid var(--color-head1);
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 20px;
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(47, 162, 239, 0.4);
 }
 
-header .opciones #dialog-opciones[open] a:nth-child(1) {
-    all: unset;
-    color: #555;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    filter: blur(5px);
-    pointer-events: none;
+/* Animación de entrada suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-header .opciones #dialog-opciones[open] a:nth-child(1) svg {
-    color: inherit;
-    width: 30px;
-}
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
 
-header .opciones #dialog-opciones[open] a:nth-child(1):hover {
-    cursor: not-allowed;
-    color: var(--warning);
-    font-weight: 500;
-}
-
-header .opciones #dialog-opciones[open] a:nth-child(2) {
-    all: unset;
-    color: #555;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-header .opciones #dialog-opciones[open] a:nth-child(2) svg {
-    color: inherit;
-    width: 30px;
-}
-
-header .opciones #dialog-opciones[open] a:nth-child(2):hover {
-    cursor: pointer;
-    color: var(--black);
-    font-weight: 500;
-}
-
-header .opciones #dialog-opciones[open]::backdrop {
-    background: none;
-}
-
-@media (max-width: 950px) {
-    .logo {
-        left: 10px;
-    }
-}
-
-@media (max-width: 500px) {
-    .logo {
-        left: 0px;
-    }
-}
-
-main {
-    height: calc(100vh - 110px);
-    padding: 20px 15%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    column-gap: 80px;
-    place-content: center;
-    place-items: center;
-}
-
-main div, main a {
-    all: unset;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    border: 2px solid var(--azul-fondo-blanco);
-    border-radius: 100px;
-}
-
-main div p, main a p {
-    flex: 1;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--black);
-}
-
-main div button, main a button {
-    all: unset;
-    height: 100px;
-    width: 100px;
-    background-color: var(--azul-marginlab);
-    background-image: var(--gradient1);
-    background-size: 190%;
-    background-position: center;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-}
-
-main div button svg, main a button svg {
-    width: 50%;
-    height: 50%;
-}
-
-main div button #roca-svg, main a button #roca-svg {
-    width: 70%;
-    height: 70%;
-}
-
-main div button #b2b-svg, main a button #b2b-svg {
-    width: 60%;
-    height: 60%;
-}
-
-main a {
-    cursor: pointer;
-    transition-duration: 300ms;
-}
-
-main a:hover {
-    transform: scale(102%);
-}
-
-main .closed-option {
-    pointer-events: none;
-    cursor: none;
-    filter: blur(10px);
-}
-
-main > div:nth-child(even) {
-    justify-content: start;
-}
-
-main > div:nth-child(even) p {
-    padding-left: 40px;
-}
-
-main > div:nth-child(odd), main a {
-    justify-content: end;
-}
-
-main > div:nth-child(odd) p, main a p {
-    padding-right: 40px;
-    text-align: end;
+  .hero-section p {
+    font-size: 1rem;
+  }
 }
