@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['version'])) {
 
 <?php
   $title_name = "Seleccionar Versión del Presupuesto";
+  $page_css = "modules/buscador.css";
   require_once BASE_DIR . "/public/templates/head.php";
 ?>
 

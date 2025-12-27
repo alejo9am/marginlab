@@ -9,6 +9,7 @@ require_once __DIR__ . "/../../config/bootstrap.php";
 
 <?php
   $title_name = "Error - MarginLab";
+  $page_css = "modules/errores.css";
   require_once BASE_DIR . "/public/templates/head.php";
 ?>
 
@@ -17,8 +18,7 @@ require_once __DIR__ . "/../../config/bootstrap.php";
   <?php require_once BASE_DIR . "/public/templates/header.php" ?>
 
   <main>
-
-    <section class="sect">
+    
       <div class="denegado">
         <h3>
           404 - Página no encontrada
@@ -28,7 +28,6 @@ require_once __DIR__ . "/../../config/bootstrap.php";
           <span>Volver</span>
         </a>
       </div>
-    </section>
 
   </main>
 

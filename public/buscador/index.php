@@ -43,6 +43,7 @@ $pdo = null;
 <html lang="es">
   <?php 
     $title_name = "Buscador de Presupuestos";
+    $page_css = "modules/buscador.css";
     require_once BASE_DIR . "/public/templates/head.php";
   ?>
 <body>

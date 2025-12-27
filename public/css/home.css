@@ -1,0 +1,201 @@
+header {
+    justify-content: end;
+}
+
+header .logo {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+
+    height: 65%;
+    overflow: visible;
+}
+
+header .logo path {
+    height: 100%;
+}
+
+header .opciones {
+    all: unset;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition-duration: 500ms;
+}
+
+header .opciones svg {
+    width: 60%;
+    height: 60%;
+    color: var(--white);
+}
+
+header .opciones:hover {
+    cursor: pointer;
+    transform: scale(110%);
+}
+
+header .opciones #dialog-opciones[open] {
+    all: unset;
+    cursor: default;
+    position: absolute;
+    top: 0;
+    right: 265px;
+    transform: translateX(50%) translateY(90px);
+    width: 200px;
+    padding: 20px;
+    background-color: #2fa2ef22;
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    border: 2px solid var(--color-head1);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+
+header .opciones #dialog-opciones[open] a:nth-child(1) {
+    all: unset;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+header .opciones #dialog-opciones[open] a:nth-child(1) svg {
+    color: inherit;
+    width: 30px;
+}
+
+header .opciones #dialog-opciones[open] a:nth-child(1):hover {
+    cursor: not-allowed;
+    color: var(--warning);
+    font-weight: 500;
+}
+
+header .opciones #dialog-opciones[open] a:nth-child(2) {
+    all: unset;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .opciones #dialog-opciones[open] a:nth-child(2) svg {
+    color: inherit;
+    width: 30px;
+}
+
+header .opciones #dialog-opciones[open] a:nth-child(2):hover {
+    cursor: pointer;
+    color: var(--black);
+    font-weight: 500;
+}
+
+header .opciones #dialog-opciones[open]::backdrop {
+    background: none;
+}
+
+@media (max-width: 950px) {
+    .logo {
+        left: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo {
+        left: 0px;
+    }
+}
+
+main {
+    height: calc(100vh - 110px);
+    padding: 20px 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    column-gap: 80px;
+    place-content: center;
+    place-items: center;
+}
+
+main div, main a {
+    all: unset;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--azul-fondo-blanco);
+    border-radius: 100px;
+}
+
+main div p, main a p {
+    flex: 1;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--black);
+}
+
+main div button, main a button {
+    all: unset;
+    height: 100px;
+    width: 100px;
+    background-color: var(--azul-marginlab);
+    background-image: var(--gradient1);
+    background-size: 190%;
+    background-position: center;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+
+main div button svg, main a button svg {
+    width: 50%;
+    height: 50%;
+}
+
+main div button #roca-svg, main a button #roca-svg {
+    width: 70%;
+    height: 70%;
+}
+
+main div button #b2b-svg, main a button #b2b-svg {
+    width: 60%;
+    height: 60%;
+}
+
+main a {
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+
+main a:hover {
+    transform: scale(102%);
+}
+
+main .closed-option {
+    pointer-events: none;
+    cursor: none;
+    filter: blur(10px);
+}
+
+main > div:nth-child(even) {
+    justify-content: start;
+}
+
+main > div:nth-child(even) p {
+    padding-left: 40px;
+}
+
+main > div:nth-child(odd), main a {
+    justify-content: end;
+}
+
+main > div:nth-child(odd) p, main a p {
+    padding-right: 40px;
+    text-align: end;
+}
