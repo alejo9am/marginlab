@@ -96,7 +96,7 @@
     } catch (Exception $e) {
         $pdo->rollBack();
         error_log("Error al guardar versión: " . $e->getMessage());
-        echo 'Error al guardar la versión: ' . $e->getMessage();
+        echo 'Error al guardar la versión';
     }
 
 ?>
