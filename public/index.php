@@ -1,6 +1,6 @@
 <?php
 // Carga la configuración básica
-require_once __DIR__ . "/../config/bootstrap.php";
+$pdo = require_once __DIR__ . "/../config/bootstrap.php";
 ?>
 
 <!DOCTYPE html>

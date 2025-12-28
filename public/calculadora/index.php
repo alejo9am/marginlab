@@ -117,12 +117,12 @@ require_once BASE_DIR . "/public/templates/head.php";
 ?>
 
 <!--IMPORTACIÓN DE LOS SCRIPTS-->
-<script src="<?= BASE_URL . "/calculadora/js/calcLine.js" ?>"></script> <!--funciones para calcular los valores de la fila-->
-<script src="<?= BASE_URL . "/calculadora/js/calcFooter.js" ?>"></script> <!--funciones para calcular los valores del footer-->
-<script src="<?= BASE_URL . "/calculadora/js/formatLine.js" ?>"></script> <!--funciones para dar formato a los valores de la fila-->
+<script src="<?= BASE_URL . "/javascript/calculadora/calcLine.js" ?>"></script> <!--funciones para calcular los valores de la fila-->
+<script src="<?= BASE_URL . "/javascript/calculadora/calcFooter.js" ?>"></script> <!--funciones para calcular los valores del footer-->
+<script src="<?= BASE_URL . "/javascript/calculadora/formatLine.js" ?>"></script> <!--funciones para dar formato a los valores de la fila-->
 <script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script> <!--libreria para exportar a excel con estilos-->
-<script src="<?= BASE_URL . "/calculadora/js/excel.js" ?>" defer></script> <!--script para exportar a excel-->
-<script src="<?= BASE_URL . "/calculadora/js/checkCambios.js" ?>" defer></script>
+<script src="<?= BASE_URL . "/javascript/calculadora/excel.js" ?>" defer></script> <!--script para exportar a excel-->
+<script src="<?= BASE_URL . "/javascript/calculadora/checkCambios.js" ?>" defer></script>
 <script defer>
   var peticionManual = false; //indica si el formulario se ha enviado manualmente
 
@@ -166,7 +166,7 @@ require_once BASE_DIR . "/public/templates/head.php";
       form.insertAdjacentHTML('beforeend', '<input type="hidden" name="nombre_version" value="' + value + '">');
       console.log('Enviando formulario...');
       peticionManual = true;
-      submitForm('<?= BASE_URL . "/calculadora/actions/insert.php" ?>?id=<?= $id ?>&v=<?= $version ?>&n=<?= $nart ?>');
+      submitForm('<?= BASE_URL . "/actions/calculadora/insert.php" ?>?id=<?= $id ?>&v=<?= $version ?>&n=<?= $nart ?>');
     }
   }
 
@@ -179,7 +179,7 @@ require_once BASE_DIR . "/public/templates/head.php";
   }
   //funcion para eliminar version
   function deleteVersion() {
-    window.location.href = '<?= BASE_URL . "/calculadora/actions/deleteVersion.php" ?>?id=<?= $id ?>&version=<?= $version ?>';
+    window.location.href = '<?= BASE_URL . "/actions/calculadora/deleteVersion.php" ?>?id=<?= $id ?>&version=<?= $version ?>';
   }
   //funcion para añadir un correo al formulario
   function addMail() {
@@ -487,7 +487,7 @@ require_once BASE_DIR . "/public/templates/head.php";
               <td id='c4'>
                 <?php
                 // input muestran el valor de la base de datos
-                //     - name es el nombre del campo en la base de datos para procesarlo en el script saveTable.php
+                //     - name es el nombre del campo en la base de datos para procesarlo en el script save.php
                 //     - value muestra el valor de la base de datos (si el valor es 0, coloca null para mostrar valor del "placeholder")
                 //     - oninput llama a la función calcLine() para hacer el calculo con cada cambio
                 //     - onblur llama a la función formatLine() para dar formato a los datos (eliminar letras, redondear, etc)
@@ -669,7 +669,7 @@ require_once BASE_DIR . "/public/templates/head.php";
       </div>
       <div class="botones">
         <?php if ($version > 1) { ?>
-          <button type="button" onclick="submitForm('<?= BASE_URL ?>/calculadora/actions/save.php?id=<?= $id ?>&v=<?= $version ?>&n=<?= $nart ?>')" data-label="Guarda los cambios de la versión de estudio">GUARDAR CAMBIOS</button>
+          <button type="button" onclick="submitForm('<?= BASE_URL ?>/actions/calculadora/save.php?id=<?= $id ?>&v=<?= $version ?>&n=<?= $nart ?>')" data-label="Guarda los cambios de la versión de estudio">GUARDAR CAMBIOS</button>
         <?php } ?>
         <button type="button" onclick="addDescription('crear');" data-label="Crea una nueva versión del estudio con los cambios actuales">CREAR NUEVA VERSIÓN</button>
         <div class="botones-exportar">
@@ -897,7 +897,7 @@ require_once BASE_DIR . "/public/templates/head.php";
 
     <h3>Introduce una nueva descripción</h3>
 
-    <form id="formCambiarNombre" action="<?= BASE_URL ?>/calculadora/actions/changeDecription.php" method="POST">
+    <form id="formCambiarNombre" action="<?= BASE_URL ?>/actions/calculadora/changeDescription.php" method="POST">
       <div class="campo-input">
         <input type="hidden" value="<?= $version ?>" name="version">
         <input type="hidden" value="<?= $id ?>" name="id">
