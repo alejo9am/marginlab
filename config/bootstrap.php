@@ -52,6 +52,53 @@ try {
   die('Error crítico del sistema. Por favor intente más tarde.');
 }
 
+// LÓGICA DE FUNCIONAMIENTO DE LA SANDBOX
+
+// AUTO-LOGIN (Persistencia de Sesión)
+// Si NO hay sesión iniciada, PERO el navegador trae la cookie 'marginlab_token'...
+if (!isset($_SESSION['sandbox_prefix']) && isset($_COOKIE['marginlab_token'])) {
+  $token = $_COOKIE['marginlab_token'];
+  // Validación de formato hexadecimal por seguridad
+  if (ctype_xdigit($token)) {
+    $_SESSION['sandbox_prefix'] = 'sbx_' . $token . '_';
+  }
+}
+
+// SEGURIDAD SANDBOX (Aislamiento de Usuarios)
+// Si estamos en modo demo, vigilamos las peticiones
+if (isset($_SESSION['sandbox_prefix'])) {
+  $prefix = $_SESSION['sandbox_prefix'];
+
+  // Lista de parámetros que suelen llevar IDs en tu app
+  $params_to_check = ['id', 'cod_presupuesto', 'cod_oferta'];
+
+  // Función anónima para inyectar seguridad en un valor
+  $asegurar_id = function ($valor) use ($prefix) {
+    if (empty($valor)) return $valor;
+
+    // CASO A: INTENTO DE HACK (Trae un token 'sbx_' que NO es el mío)
+    if (strpos($valor, 'sbx_') === 0 && strpos($valor, $prefix) !== 0) {
+      error_log("SEGURIDAD: Intento de acceso cruzado. User $prefix intentó $valor");
+      die("<h1>ACCESO DENEGADO</h1><p>No tienes permiso para acceder a este Sandbox ajeno.</p>");
+    }
+
+    // CASO B: ID LIMPIO (Viene '10001') -> Le ponemos mi prefijo ('sbx_mio_10001')
+    if (strpos($valor, 'sbx_') === false) {
+      return $prefix . $valor;
+    }
+
+    // CASO C: ID CORRECTO (Ya trae mi prefijo) -> Lo dejamos pasar
+    return $valor;
+  };
+
+  // Aplicamos el interceptor a GET, POST y REQUEST automáticamente
+  foreach ($params_to_check as $key) {
+    if (isset($_GET[$key])) $_GET[$key] = $asegurar_id($_GET[$key]);
+    if (isset($_POST[$key])) $_POST[$key] = $asegurar_id($_POST[$key]);
+    if (isset($_REQUEST[$key])) $_REQUEST[$key] = $asegurar_id($_REQUEST[$key]);
+  }
+}
+
 return $pdo;
 
 ?>
