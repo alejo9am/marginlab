@@ -24,7 +24,7 @@ if (isset($_POST['cod_presupuesto'])) {
   if ($nversiones == 0){
     redirigir("errores");
   } elseif($nversiones == 1) {
-    redirigir("calculadora/index.php?id=$cod_presupuesto&version=1");
+    redirigir("calculadora/?id=$cod_presupuesto&version=1");
   } else {
     redirigir("buscador/select.php?id=$cod_presupuesto");
   }

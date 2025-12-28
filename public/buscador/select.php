@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['version'])) {
 
   $versionSeleccionada = limpiar_dato($_POST['version']);
 
-  redirigir("calculadora/index.php?id=$id&version=$versionSeleccionada");
+  redirigir("calculadora/?id=$id&version=$versionSeleccionada");
 }
 
 

@@ -90,12 +90,11 @@ CREATE TABLE `articulos` (
 -- -------------------------------------------------------------
 
 -- 1. Insertamos las CABECERAS (Presupuestos únicos)
-INSERT INTO `presupuestos` (cod_presupuesto, version, nombre_version, cod_cliente, nomb_cliente, referencia, obra, obs_comercial) VALUES
-(123456789, 1, 'Versión Inicial', 'CLI-001', 'Construcciones Norte S.L.', 'REF-2024-01', 'Reforma Hospital', 'Cliente solicita entrega urgente'),
-(123456789, 2, 'Primeros cambios', 'CLI-001', 'Construcciones Norte S.L.', 'REF-2024-01', 'Reforma Hospital', 'Actualización de precio en segunda versión'),
-(987654321, 1, 'Versión Inicial', 'CLI-002', 'Reformas Garcia', 'OBRA-22', 'Chalet La Moraleja', 'Descuento especial por volumen'),
-(456123789, 1, 'Versión Inicial', 'CLI-003', 'Electricidad Industrial SA', 'IND-55', 'Nave Logística', 'Pendiente de aprobación técnica');
-
+INSERT INTO `presupuestos` (cod_presupuesto, version, nombre_version, cod_cliente, nomb_cliente, referencia, obra, obs_comercial, obs_revision) VALUES
+(123456789, 1, 'Versión Inicial', 'CLI-001', 'Construcciones Norte S.L.', 'REF-2024-01', 'Reforma Hospital', 'Cliente solicita entrega urgente', ''),
+(123456789, 2, 'Primeros cambios', 'CLI-001', 'Construcciones Norte S.L.', 'REF-2024-01', 'Reforma Hospital', 'Actualización de precio en segunda versión', 'Pendiente revisión de costes'),
+(987654321, 1, 'Versión Inicial', 'CLI-002', 'Reformas Garcia', 'OBRA-22', 'Chalet La Moraleja', 'Descuento especial por volumen', ''),
+(456123789, 1, 'Versión Inicial', 'CLI-003', 'Electricidad Industrial SA', 'IND-55', 'Nave Logística', 'Pendiente de aprobación técnica', '');
 -- 2. Insertamos las LÍNEAS (Artículos vinculados)
 INSERT INTO `articulos` 
 (cod_presupuesto, version, proveedor, cod_art, descripcion, unidades, precio_venta, descuento_venta, neto_venta, importe_venta, precio_compra, descuento_factura, rappel) 
