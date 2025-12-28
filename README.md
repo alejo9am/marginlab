@@ -1,34 +1,41 @@
-<p align="center" syle="color: #2fa2ef">
-  <img src="public/img/banner.png" alt="MarginLab Logo">
+<p align="center">
+  <img src="public/img/banner.png" alt="MarginLab Dashboard" width="100%">
 </p>
 
-# MarginLab - Calculadora de Márgenes y Presupuestos
+<p align="center">
+  <a href="marginlab.local" target="_blank">
+    <img src="https://img.shields.io/badge/PROBAR_DEMO_AHORA-2fa2ef?style=for-the-badge&logo=rocket&logoColor=white" alt="Lanzar Demo">
+  </a>
+  <a href="https://www.linkedin.com/in/alejoarenas" target="_blank">
+    <img src="https://img.shields.io/badge/Contactar_Autor-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+  </a>
+</p>
 
-> **Adaptación a portafolio público de una herramienta corporativa real.**
+<br>
 
 Este proyecto es la evolución de un software utilizado internamente por una empresa del sector de la construcción y reformas. Su objetivo es permitir a los comerciales calcular márgenes de beneficio complejos y gestionar presupuestos con precisión milimétrica.
 
-## ¿Qué soluciona esta herramienta?
+## 🎯 ¿Qué soluciona esta herramienta?
 
 En el sector de la construcción, calcular el precio final de un artículo es complejo debido a las múltiples variables que afectan al coste (descuentos en cadena, costes de transporte, rappels anuales, etc.).
 
 **MarginLab** automatiza estos cálculos para evitar errores humanos y proteger la rentabilidad:
 * **Cálculo de costes en cascada:** Gestiona descuentos compuestos (Factura + Pronto Pago + Rappel).
 * **Semáforo de Rentabilidad:** Un sistema visual alerta si un producto se vende por debajo del coste o si el margen es insuficiente.
-* **Control de Versiones:** Permite crear múltiples escenarios de un mismo presupuesto sin perder el historial.
+* **Control de Versiones:** Permite crear múltiples iteraciones de un mismo presupuesto sin perder el historial.
 
-## Cómo funciona esta Demo: Tu Espacio Privado
+## 🔓 Cómo funciona esta Demo: Tu Espacio Privado
 
 El mayor reto de este proyecto fue transformar una herramienta empresarial (que requiere registro y permisos) en una **web pública accesible para todos**, pero manteniendo la privacidad de los datos.
 
 Para lograrlo, he desarrollado un sistema de **"Sesiones Privadas Automáticas"**:
 
-1.  **Sin Registro:** No necesitas crear una cuenta ni dar tu email. Simplemente pulsas "Iniciar".
+1.  **Sin Registro:** No necesitas crear una cuenta ni dar tu email. Simplemente pulsas el botón de arriba.
 2.  **Tu Copia Personal:** Al entrar, el sistema crea instantáneamente una copia única y aislada de la base de datos solo para ti.
 3.  **Aislamiento Total:** Lo que edites, borres o calcules solo lo ves tú. Ningún otro visitante puede acceder a tus presupuestos ni ver tus cambios.
 4.  **Memoria Inteligente:** Puedes cerrar el navegador y volver días después; el sistema reconocerá tu dispositivo y te devolverá a tu trabajo exactamente donde lo dejaste.
 
-## Arquitectura Técnica
+## ⚙️ Arquitectura Técnica
 
 El proyecto ha sido reescrito siguiendo estándares de desarrollo modernos y limpios:
 
