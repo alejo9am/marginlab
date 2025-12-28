@@ -3,6 +3,7 @@
 //VERIFICAR QUE EL USUARIO ESTÁ AUTENTICADO Y CREAR CONEXIÓN A LA BASE DE DATOS PDO
 $pdo = require_once __DIR__ . "/../../config/bootstrap.php";
 
+
 //OBTENER CODIGOS DE OFERTA DE LA BASE DE DATOS
 try {
   if (isset($_SESSION['sandbox_prefix'])) {

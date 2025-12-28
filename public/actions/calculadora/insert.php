@@ -6,6 +6,7 @@
 
     $n = limpiar_dato($_GET['n']); //numero de articulos
     $cod_presupuesto = limpiar_dato($_GET['id']); //id de la oferta
+    $cod_presupuesto_visual = limpiar_dato($_GET['id_visual'] ?? $cod_presupuesto);
     $version = limpiar_dato($_GET['v']); //version de la oferta
 
 
@@ -103,12 +104,12 @@
         $pdo->commit();
         
         // Redirigir a la página de inicio
-        redirigir("/calculadora/?id=$cod_presupuesto&version=$insertVers");
+        redirigir("/calculadora/?id=$cod_presupuesto_visual&version=$insertVers");
 
     } catch (Exception $e) {
         $pdo->rollBack();
         error_log("Error al crear nueva versión: " . $e->getMessage());
-        echo 'Error al crear la nueva versión: ' . $e->getMessage();
+        echo 'Error al crear la nueva versión. Por favor, inténtelo de nuevo.';
     }
 
 ?>

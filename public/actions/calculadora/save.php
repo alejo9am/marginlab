@@ -7,10 +7,11 @@
 
     $n = limpiar_dato($_GET['n']); //numero de articulos
     $cod_presupuesto = limpiar_dato($_GET['id']); //id de la oferta
+    $cod_presupuesto_visual = limpiar_dato($_GET['id_visual'] ?? $cod_presupuesto);
     $version = limpiar_dato($_GET['v']); //version de la oferta
 
     // ejecutar solo si la version no es la inicial (versión 0 suele ser la importada/original)
-    if($version == 1) redirigir("/calculadora/?id=$cod_presupuesto&version=$version");
+    if($version == 1) redirigir("/calculadora/?id=$cod_presupuesto_visual&version=$version");
 
     try {
         $pdo->beginTransaction();
@@ -91,7 +92,7 @@
         $pdo->commit();
         
         // Redirigir a la página de inicio
-        redirigir("/calculadora/?id=$cod_presupuesto&version=$version");
+        redirigir("/calculadora/?id=$cod_presupuesto_visual&version=$version");
 
     } catch (Exception $e) {
         $pdo->rollBack();

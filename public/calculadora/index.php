@@ -10,7 +10,7 @@ $id_visual = limpiar_dato($_GET['id_visual'] ?? $id);
 
 //si version no esta definida, redirigir a version 1
 if (!isset($_GET['version'])) {
-  redirigir("/calculadora/?id=" . $id_visual . "&version=1");
+  redirigir("/calculadora/?id=$id_visual&version=1");
 }
 
 $version = limpiar_dato($_GET['version']);
