@@ -4,6 +4,11 @@ $pdo = require_once "../../config/bootstrap.php";
 
 $id = limpiar_dato($_GET['id']);
 
+$id_visual = $id;
+if (isset($_SESSION['sandbox_prefix'])) {
+    $id_visual = str_replace($_SESSION['sandbox_prefix'], '', $id);
+}
+
 $query = "SELECT DISTINCT version, nombre_version FROM presupuestos WHERE cod_presupuesto= :cod_presupuesto ORDER BY version DESC";
 
 //ejecutar la consulta
@@ -16,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['version'])) {
 
   $versionSeleccionada = limpiar_dato($_POST['version']);
 
-  redirigir("calculadora/?id=$id&version=$versionSeleccionada");
+  redirigir("/calculadora/?id=$id_visual&version=$versionSeleccionada");
 }
 
 
@@ -38,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['version'])) {
     <main>
 
         <section class="sect">
-            <form id="formBusqueda" method="post" action="./select.php?id=<?=$id?>">
+            <form id="formBusqueda" method="post" action="./select.php?id=<?=$id_visual?>">
                 <h2 >Selecciona la versión del presupuesto</h2>
                 <svg width="1440" height="2" viewBox="0 0 1440 2" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 1H1440" stroke="black"/>
