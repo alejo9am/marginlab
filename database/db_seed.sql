@@ -67,7 +67,7 @@ CREATE TABLE `articulos` (
   
   -- Totales y cálculos
   `precio_factura` decimal(10,2) DEFAULT 0.00,
-  `porte` varchar(50) DEFAULT '',
+  `porte` decimal(10,2) DEFAULT 0.00,
   `pc_porte` decimal(10,2) DEFAULT 0.00,
   `descuento_ne` decimal(10,2) DEFAULT 0.00,
   `rappel` decimal(10,2) DEFAULT 0.00,
