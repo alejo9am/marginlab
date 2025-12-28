@@ -8,7 +8,7 @@ $pdo = require_once __DIR__ . "/../config/bootstrap.php";
 
 <?php
 $title_name = "Bienvenido a MarginLab";
-$page_css = "home.css"; // Cargamos los estilos de la landing
+$page_css = "home.css";
 require_once BASE_DIR . "/public/templates/head.php";
 ?>
 
@@ -29,7 +29,7 @@ require_once BASE_DIR . "/public/templates/head.php";
         <em>Versión Open Source para demostración técnica.</em>
       </p>
 
-      <a href="<?= BASE_URL ?>/buscador" class="cta-button">
+      <a href="<?= BASE_URL ?>/actions/initSandbox.php" class="cta-button">
         Iniciar MarginLab Playground 🚀
       </a>
     </section>
