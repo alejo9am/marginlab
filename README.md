@@ -8,7 +8,7 @@
 
 Este proyecto es la evolución de un software utilizado internamente por una empresa del sector de la construcción y reformas. Su objetivo es permitir a los comerciales calcular márgenes de beneficio complejos y gestionar presupuestos con precisión milimétrica.
 
-## 🎯 ¿Qué soluciona esta herramienta?
+## ¿Qué soluciona esta herramienta?
 
 En el sector de la construcción, calcular el precio final de un artículo es complejo debido a las múltiples variables que afectan al coste (descuentos en cadena, costes de transporte, rappels anuales, etc.).
 
@@ -17,7 +17,7 @@ En el sector de la construcción, calcular el precio final de un artículo es co
 * **Semáforo de Rentabilidad:** Un sistema visual alerta si un producto se vende por debajo del coste o si el margen es insuficiente.
 * **Control de Versiones:** Permite crear múltiples escenarios de un mismo presupuesto sin perder el historial.
 
-## 🔓 Cómo funciona esta Demo: Tu Espacio Privado
+## Cómo funciona esta Demo: Tu Espacio Privado
 
 El mayor reto de este proyecto fue transformar una herramienta empresarial (que requiere registro y permisos) en una **web pública accesible para todos**, pero manteniendo la privacidad de los datos.
 
@@ -28,7 +28,7 @@ Para lograrlo, he desarrollado un sistema de **"Sesiones Privadas Automáticas"*
 3.  **Aislamiento Total:** Lo que edites, borres o calcules solo lo ves tú. Ningún otro visitante puede acceder a tus presupuestos ni ver tus cambios.
 4.  **Memoria Inteligente:** Puedes cerrar el navegador y volver días después; el sistema reconocerá tu dispositivo y te devolverá a tu trabajo exactamente donde lo dejaste.
 
-## ⚙️ Arquitectura Técnica
+## Arquitectura Técnica
 
 El proyecto ha sido reescrito siguiendo estándares de desarrollo modernos y limpios:
 
