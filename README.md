@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="http:marginlab.local" target="_blank">
+  <a href="http://marginlab.local" target="_blank">
     <img src="https://img.shields.io/badge/PROBAR_DEMO_AHORA-2fa2ef?style=for-the-badge&logo=rocket&logoColor=white" alt="Lanzar Demo">
   </a>
   <a href="https://www.linkedin.com/in/alejoarenas" target="_blank">
