@@ -4,7 +4,7 @@
 require_once __DIR__ . "/../../config/bootstrap.php";
 
 //OBTENER CODIGOS DE OFERTA DE LA BASE DE DATOS
-$query = "SELECT DISTINCT cod_oferta FROM lineas_oferta";
+$query = "SELECT DISTINCT cod_presupuesto FROM articulos ORDER BY cod_presupuesto ASC";
 $stmt = $pdo->query($query);
 $codigos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -13,16 +13,13 @@ $codigos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 if (isset($_POST['cod_presupuesto'])) {
   $cod_presupuesto = limpiar_dato($_POST['cod_presupuesto']);
 
-  $query = "SELECT DISTINCT version FROM lineas_oferta WHERE cod_oferta = :cod_oferta ORDER BY version DESC";
+  //consulta para contar las distintas versiones del presupuesto
+  $query = "SELECT count(DISTINCT version) FROM articulos WHERE cod_presupuesto = :cod_presupuesto";
             
   // Preparar y ejecutar la consulta con PDO
   $stmt = $pdo->prepare($query);
-  $stmt->execute([':cod_oferta' => $cod_presupuesto]);
-
-  // Obtener resultados (la consulta devuelve una lista con las distintas versiones del presupuesto)
-  $versiones = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-  $nversiones = sizeof($versiones);
+  $stmt->execute([':cod_presupuesto' => $cod_presupuesto]);
+  $nversiones = $stmt->fetchColumn();
 
   if ($nversiones == 0){
     redirigir("errores");
@@ -58,9 +55,9 @@ $pdo = null;
                 </svg>
                 <div class="bottom">
                     <datalist id="codigos">
-                        <!--BUCLE PHP PARA IMPRIMIR LOS CODIGOS DE cod_oferta-->
+                        <!--BUCLE PHP PARA IMPRIMIR LOS CODIGOS DE cod_presupuesto-->
                         <?php foreach ($codigos as $codigo) { ?>
-                            <option value="<?= $codigo['cod_oferta'] ?>">
+                            <option value="<?= $codigo['cod_presupuesto'] ?>">
                         <?php } ?>
                     </datalist>
 

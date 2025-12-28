@@ -4,12 +4,11 @@ require_once "../../config/bootstrap.php";
 
 $id = limpiar_dato($_GET['id']);
 
-$query = "SELECT DISTINCT version, nombre_version FROM lineas_oferta WHERE cod_oferta= :cod_oferta ORDER BY version DESC";
+$query = "SELECT DISTINCT version, nombre_version FROM presupuestos WHERE cod_presupuesto= :cod_presupuesto ORDER BY version DESC";
 
 //ejecutar la consulta
 $stmt = $pdo->prepare($query);
-$stmt->execute([':cod_oferta' => $id]);
-
+$stmt->execute([':cod_presupuesto' => $id]);
 //vector con las versiones
 $versiones = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
