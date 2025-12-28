@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center" syle="color:#2fa2ef">
   <img src="public/img/logoComplete.svg" alt="MarginLab Logo" width="300">
 </p>
 
