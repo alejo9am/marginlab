@@ -1,7 +1,7 @@
 <?php
 
 //VERIFICAR QUE EL USUARIO ESTÁ AUTENTICADO Y CREAR CONEXIÓN A LA BASE DE DATOS PDO
-require_once __DIR__ . "/../../config/bootstrap.php";
+$pdo = require_once __DIR__ . "/../../config/bootstrap.php";
 
 //OBTENER CODIGOS DE OFERTA DE LA BASE DE DATOS
 $query = "SELECT DISTINCT cod_presupuesto FROM articulos ORDER BY cod_presupuesto ASC";

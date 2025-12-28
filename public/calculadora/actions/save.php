@@ -3,7 +3,7 @@
     //PHP para hacer update de la tabla -----> GUADAR CAMBIOS EN LA MISMA VERSIÓN
     //se ejecuta solo si la version no es la inicial
 
-    require_once "../../../config/bootstrap.php";
+    $pdo = require_once "../../../config/bootstrap.php";
 
     $n = limpiar_dato($_GET['n']); //numero de articulos
     $cod_presupuesto = limpiar_dato($_GET['id']); //id de la oferta

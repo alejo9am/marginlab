@@ -2,7 +2,7 @@
 
     //PHP para borrar una versión de un presupuesto concreto
 
-    require_once('../../../config/bootstrap.php');
+    $pdo = require_once('../../../config/bootstrap.php');
 
     //CONSULTA A LA BASE DE DATOS USANDO EL PDO
     $cod_oferta = limpiar_dato($_GET['id']);

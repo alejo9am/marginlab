@@ -52,4 +52,6 @@ try {
   die('Error crítico del sistema. Por favor intente más tarde.');
 }
 
+return $pdo;
+
 ?>

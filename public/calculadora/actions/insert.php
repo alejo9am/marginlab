@@ -2,7 +2,7 @@
 
     //PHP para insertar valores modficados -----> CREAR UNA NUEVA VERSIÓN
 
-    require_once "../../../config/bootstrap.php";
+    $pdo = require_once "../../../config/bootstrap.php";
 
     $n = limpiar_dato($_GET['n']); //numero de articulos
     $cod_presupuesto = limpiar_dato($_GET['id']); //id de la oferta
