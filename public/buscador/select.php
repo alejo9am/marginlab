@@ -3,11 +3,7 @@
 $pdo = require_once "../../config/bootstrap.php";
 
 $id = limpiar_dato($_GET['id']);
-
-$id_visual = $id;
-if (isset($_SESSION['sandbox_prefix'])) {
-    $id_visual = str_replace($_SESSION['sandbox_prefix'], '', $id);
-}
+$id_visual = limpiar_dato($_GET['id_visual'] ?? $id);
 
 $query = "SELECT DISTINCT version, nombre_version FROM presupuestos WHERE cod_presupuesto= :cod_presupuesto ORDER BY version DESC";
 

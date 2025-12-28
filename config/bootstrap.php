@@ -93,9 +93,24 @@ if (isset($_SESSION['sandbox_prefix'])) {
 
   // Aplicamos el interceptor a GET, POST y REQUEST automáticamente
   foreach ($params_to_check as $key) {
-    if (isset($_GET[$key])) $_GET[$key] = $asegurar_id($_GET[$key]);
-    if (isset($_POST[$key])) $_POST[$key] = $asegurar_id($_POST[$key]);
-    if (isset($_REQUEST[$key])) $_REQUEST[$key] = $asegurar_id($_REQUEST[$key]);
+
+    // PROCESAMIENTO $_GET
+    if (isset($_GET[$key])) {
+      $_GET[$key . '_visual'] = $_GET[$key];
+      $_GET[$key] = $asegurar_id($_GET[$key]);
+    }
+
+    // PROCESAMIENTO $_POST
+    if (isset($_POST[$key])) {
+      $_POST[$key . '_visual'] = $_POST[$key];
+      $_POST[$key] = $asegurar_id($_POST[$key]);
+    }
+
+    // PROCESAMIENTO $_REQUEST
+    if (isset($_REQUEST[$key])) {
+      $_REQUEST[$key . '_visual'] = $_REQUEST[$key];
+      $_REQUEST[$key] = $asegurar_id($_REQUEST[$key]);
+    }
   }
 }
 

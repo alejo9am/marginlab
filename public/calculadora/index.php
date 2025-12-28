@@ -6,10 +6,11 @@ $pdo = require_once  "../../config/bootstrap.php";
 if (!isset($_GET['id'])) redirigir("/buscador");
 
 $id = limpiar_dato($_GET['id']);
+$id_visual = limpiar_dato($_GET['id_visual'] ?? $id);
 
 //si version no esta definida, redirigir a version 1
 if (!isset($_GET['version'])) {
-  redirigir("/calculadora/?id=" . $id . "&version=1");
+  redirigir("/calculadora/?id=" . $id_visual . "&version=1");
 }
 
 $version = limpiar_dato($_GET['version']);
@@ -114,7 +115,7 @@ $alertaRappel = false;
 
 <!--HEAD-->
 <?php
-$title_name = "Calculadora - Presupuesto $id";
+$title_name = "Calculadora - Presupuesto $id_visual";
 $page_css = "modules/calculadora.css";
 require_once BASE_DIR . "/public/templates/head.php";
 ?>
@@ -169,7 +170,7 @@ require_once BASE_DIR . "/public/templates/head.php";
       form.insertAdjacentHTML('beforeend', '<input type="hidden" name="nombre_version" value="' + value + '">');
       console.log('Enviando formulario...');
       peticionManual = true;
-      submitForm('<?= BASE_URL . "/actions/calculadora/insert.php" ?>?id=<?= $id ?>&v=<?= $version ?>&n=<?= $nart ?>');
+      submitForm('<?= BASE_URL . "/actions/calculadora/insert.php" ?>?id=<?= $id_visual ?>&v=<?= $version ?>&n=<?= $nart ?>');
     }
   }
 
@@ -182,7 +183,7 @@ require_once BASE_DIR . "/public/templates/head.php";
   }
   //funcion para eliminar version
   function deleteVersion() {
-    window.location.href = '<?= BASE_URL . "/actions/calculadora/deleteVersion.php" ?>?id=<?= $id ?>&version=<?= $version ?>';
+    window.location.href = '<?= BASE_URL . "/actions/calculadora/deleteVersion.php" ?>?id=<?= $id_visual ?>&version=<?= $version ?>';
   }
   //funcion para añadir un correo al formulario
   function addMail() {
@@ -240,7 +241,7 @@ require_once BASE_DIR . "/public/templates/head.php";
 
     var versionSeleccionada = document.getElementById('selectVersion').value;
     versionSeleccionada = versionSeleccionada.replace('Versión ', '');
-    var url = 'index.php?id=<?= $id ?>&version=' + versionSeleccionada;
+    var url = '?id=<?= $id_visual ?>&version=' + versionSeleccionada;
 
     if (sinGuardar) {
       window.location = url;
@@ -318,7 +319,7 @@ require_once BASE_DIR . "/public/templates/head.php";
     <section class="top">
 
       <div class="versiones" <?= ($version == 0) ? 'style="padding: 30px 0px;"' : '' ?>>
-        <p id="cod-presupuesto">Presupuesto - <?= $id ?></p>
+        <p id="cod-presupuesto">Presupuesto - <?= $id_visual ?></p>
 
         <svg width="1440" height="3" viewBox="0 0 1440 2" preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 1H1440" stroke="currentColor" />
@@ -672,7 +673,7 @@ require_once BASE_DIR . "/public/templates/head.php";
       </div>
       <div class="botones">
         <?php if ($version > 1) { ?>
-          <button type="button" onclick="submitForm('<?= BASE_URL ?>/actions/calculadora/save.php?id=<?= $id ?>&v=<?= $version ?>&n=<?= $nart ?>')" data-label="Guarda los cambios de la versión de estudio">GUARDAR CAMBIOS</button>
+          <button type="button" onclick="submitForm('<?= BASE_URL ?>/actions/calculadora/save.php?id=<?= $id_visual ?>&v=<?= $version ?>&n=<?= $nart ?>')" data-label="Guarda los cambios de la versión de estudio">GUARDAR CAMBIOS</button>
         <?php } ?>
         <button type="button" onclick="addDescription('crear');" data-label="Crea una nueva versión del estudio con los cambios actuales">CREAR NUEVA VERSIÓN</button>
         <div class="botones-exportar">
@@ -875,7 +876,6 @@ require_once BASE_DIR . "/public/templates/head.php";
         </div>
 
         <datalist id="correos">
-          <!--BUCLE PHP PARA IMPRIMIR LOS CODIGOS DE cod_oferta-->
           <?php foreach ($correos as $correo) { ?>
             <option value="<?= $correo ?>">
             <?php } ?>
@@ -903,7 +903,7 @@ require_once BASE_DIR . "/public/templates/head.php";
     <form id="formCambiarNombre" action="<?= BASE_URL ?>/actions/calculadora/changeDescription.php" method="POST">
       <div class="campo-input">
         <input type="hidden" value="<?= $version ?>" name="version">
-        <input type="hidden" value="<?= $id ?>" name="id">
+        <input type="hidden" value="<?= $id_visual ?>" name="id">
         <input id="valor-input-change" type="text" name="nombre_version" required autocomplete="off" maxlength="40">
         <label for="valor-input-change">Nombre de la versión</label>
         <output id="count-change">0 / 40</output>
