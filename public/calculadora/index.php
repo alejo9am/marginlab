@@ -36,8 +36,11 @@ try {
   $stmt = $pdo->prepare($query);
   $stmt->execute([':id' => $id]);
   $versiones = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  // comprobar en consola las versiones
-  echo "<script>console.log('Versiones: " . json_encode($versiones) . "');</script>";
+  
+  // Si no existe el presupuesto o la versión, redirigir a errores
+  if (!$presupuesto || $nart == 0) {
+    redirigir("errores");
+  }
   
 } catch (PDOException $e) {
   error_log("Error en calculadora: " . $e->getMessage());
