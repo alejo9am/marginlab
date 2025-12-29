@@ -117,7 +117,7 @@ $alertaRappel = false;
 <?php
 $title_name = "Calculadora - Presupuesto $id_visual";
 $page_css = "modules/calculadora.css";
-require_once BASE_DIR . "/public/templates/head.php";
+require_once BASE_DIR . "/web/templates/head.php";
 ?>
 
 <!--IMPORTACIÓN DE LOS SCRIPTS-->
@@ -311,7 +311,7 @@ require_once BASE_DIR . "/public/templates/head.php";
 
 <body>
 
-  <?php require_once BASE_DIR . "/public/templates/header.php" ?>
+  <?php require_once BASE_DIR . "/web/templates/header.php" ?>
 
 
   <main>

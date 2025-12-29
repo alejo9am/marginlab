@@ -29,12 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['version'])) {
 <?php
   $title_name = "Seleccionar Versión del Presupuesto";
   $page_css = "modules/buscador.css";
-  require_once BASE_DIR . "/public/templates/head.php";
+  require_once BASE_DIR . "/web/templates/head.php";
 ?>
 
 <body>
 
-    <?php require_once BASE_DIR . "/public/templates/header.php" ?>
+    <?php require_once BASE_DIR . "/web/templates/header.php" ?>
 
     <main>
 
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['version'])) {
 
     </main>
 
-    <?php require_once BASE_DIR . "/public/templates/footer.php" ?>
+    <?php require_once BASE_DIR . "/web/templates/footer.php" ?>
     
 </body>
 </html>
