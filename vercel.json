@@ -1,8 +1,5 @@
 {
   "functions": {
-    "public/actions/**/*.php": {
-      "runtime": "vercel-php@0.6.0"
-    },
     "public/**/*.php": {
       "runtime": "vercel-php@0.6.0"
     }
