@@ -5,8 +5,7 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
--- Limpieza de tablas antiguas y nuevas
-DROP TABLE IF EXISTS `lineas_oferta`;
+-- Limpieza de tablas
 DROP TABLE IF EXISTS `articulos`;
 DROP TABLE IF EXISTS `presupuestos`;
 
@@ -84,99 +83,6 @@ CREATE TABLE `articulos` (
   KEY `idx_presupuesto` (`cod_presupuesto`, `version`),
   CONSTRAINT `fk_presupuesto_articulo` FOREIGN KEY (`cod_presupuesto`, `version`) REFERENCES `presupuestos` (`cod_presupuesto`, `version`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-
--- -------------------------------------------------------------
--- Volcado de Datos (Seed Avanzado para Pruebas)
--- -------------------------------------------------------------
-
--- -------------------------------------------------------------
--- Schema para MarginLab (Refactorizado)
--- -------------------------------------------------------------
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
--- Limpieza de tablas antiguas y nuevas
-DROP TABLE IF EXISTS `lineas_oferta`;
-DROP TABLE IF EXISTS `articulos`;
-DROP TABLE IF EXISTS `presupuestos`;
-
--- -------------------------------------------------------------
--- Tabla: presupuestos (Cabeceras)
--- Contiene la información común del presupuesto y cliente
--- -------------------------------------------------------------
-CREATE TABLE `presupuestos` (
-  `cod_presupuesto` varchar(64) NOT NULL,
-  `version` int(11) NOT NULL DEFAULT 1,
-  `nombre_version` varchar(100) DEFAULT NULL,
-  
-  -- Datos del cliente
-  `cod_cliente` varchar(50) DEFAULT NULL,
-  `nomb_cliente` varchar(100) DEFAULT NULL,
-  `referencia` varchar(100) DEFAULT NULL,
-  `obra` varchar(100) DEFAULT NULL,
-
-  -- Comentarios y observaciones
-  `obs_comercial` text DEFAULT NULL,
-  `obs_revision` text DEFAULT NULL,
-  
-  -- Auditoría
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-
-  PRIMARY KEY (`cod_presupuesto`, `version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- -------------------------------------------------------------
--- Tabla: articulos (Líneas)
--- Contiene solo la información específica de cada producto
--- -------------------------------------------------------------
-CREATE TABLE `articulos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cod_presupuesto` varchar(64) NOT NULL,
-  `version` int(11) NOT NULL DEFAULT 1,
-  
-  `proveedor` varchar(50) DEFAULT NULL,
-  `cod_art` varchar(50) DEFAULT NULL, -- Mantenemos cod_art para compatibilidad PHP
-  `descripcion` text DEFAULT NULL,
-  `unidades` int(11) DEFAULT 0,
-  
-  -- Campos económicos
-  `precio_venta` decimal(10,2) DEFAULT 0.00,
-  `descuento_venta` decimal(10,2) DEFAULT 0.00,
-  `neto_venta` decimal(10,2) DEFAULT 0.00,
-  `importe_venta` decimal(10,2) DEFAULT 0.00,
-  `precio_compra` decimal(10,2) DEFAULT 0.00,
-  `descuento_factura` decimal(10,2) DEFAULT 0.00,
-  
-  -- Logística y extras
-  `camion` varchar(50) DEFAULT '',
-  `palet` decimal(10,2) DEFAULT 0.00,
-  `cantidad` int(11) DEFAULT 0,
-  `plv` decimal(10,2) DEFAULT 0.00,
-  `extra` decimal(10,2) DEFAULT 0.00,
-  `especial_venta` varchar(50) DEFAULT '',
-  
-  -- Totales y cálculos
-  `precio_factura` decimal(10,2) DEFAULT 0.00,
-  `porte` decimal(10,2) DEFAULT 0.00,
-  `pc_porte` decimal(10,2) DEFAULT 0.00,
-  `descuento_ne` decimal(10,2) DEFAULT 0.00,
-  `rappel` decimal(10,2) DEFAULT 0.00,
-  `programa` decimal(10,2) DEFAULT 0.00,
-  `pc_rappel` decimal(10,2) DEFAULT 0.00,
-  
-  -- Campos BSV
-  `bsv_porc_fact` decimal(10,2) DEFAULT 0.00,
-  `bsv_porc_rappel` decimal(10,2) DEFAULT 0.00,
-  `bsv_eur_fact` decimal(10,2) DEFAULT 0.00,
-  `bsv_eur_rappel` decimal(10,2) DEFAULT 0.00,
-  
-  PRIMARY KEY (`id`),
-  KEY `idx_presupuesto` (`cod_presupuesto`, `version`),
-  CONSTRAINT `fk_presupuesto_articulo` FOREIGN KEY (`cod_presupuesto`, `version`) REFERENCES `presupuestos` (`cod_presupuesto`, `version`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 
 -- -------------------------------------------------------------
 -- Volcado de Datos (Seed Final - Optimizado para Sandbox)
