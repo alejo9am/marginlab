@@ -72,7 +72,7 @@ require_once BASE_DIR . "/api/templates/head.php";
   <?php require_once BASE_DIR . "/api/templates/header.php" ?>
   <main>
     <section class="sect">
-      <form id="formBusqueda" method="post" action="./index.php">
+      <form id="formBusqueda" method="post" action="">
         <h2>Introduce el identificador del presupuesto</h2>
         <svg width="1440" height="2" viewBox="0 0 1440 2" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 1H1440" stroke="black" />
