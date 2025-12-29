@@ -1,81 +1,154 @@
 /* Estilos exclusivos de la Landing Page */
 
-main.landing {
-  min-height: calc(100vh - 140px);
-  /* Restamos header y footer */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-  background-color: var(--white);
+.landing-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.hero-section {
-  max-width: 800px;
-  animation: fadeIn 0.8s ease-out;
+.hero-content {
+    max-width: 800px;
+    animation: fadeIn 0.8s ease-out;
 }
 
-.hero-section h1 {
-  font-size: 3.5rem;
-  color: var(--azul-marginlab);
-  margin-bottom: 1rem;
-  font-weight: 800;
-  line-height: 1.2;
+.hero-title {
+    font-size: 4rem;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
 }
 
-.hero-section h1 span {
-  color: var(--black);
-  /* O un gris oscuro */
+.hero-subtitle {
+    font-size: 1.35rem;
+    color: var(--gris5);
+    margin-bottom: 3.5rem;
+    line-height: 1.5;
+    font-weight: 400;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.hero-section p {
-  font-size: 1.25rem;
-  color: var(--gris5);
-  margin-bottom: 3rem;
-  line-height: 1.6;
+/* CTA Wrapper */
+.cta-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
-/* Botón CTA (Call To Action) */
-.cta-button {
-  display: inline-block;
-  background: var(--gradient1);
-  color: white;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 10px 20px rgba(47, 162, 239, 0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
+/* Botón CTA Principal */
+.btn-primary-lg {
+    display: inline-block;
+    background-color: var(--azul-marginlab);
+    color: #fff;
+    padding: 1.2rem 3.5rem;
+    border-radius: 6px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 10px 30px -10px rgba(47, 162, 239, 0.5);
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
 }
 
-.cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 25px rgba(47, 162, 239, 0.4);
+.btn-primary-lg:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px -10px rgba(47, 162, 239, 0.6);
+    background-color: var(--dark-azul-marginlab);
 }
 
-/* Animación de entrada suave */
+.micro-copy {
+    font-size: 0.85rem;
+    color: var(--gris5);
+    opacity: 0.7;
+    font-weight: 400;
+    margin-top: 0.5rem;
+}
+
+/* Animación */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero-section h1 {
-    font-size: 2.5rem;
-  }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .btn-primary-lg {
+        padding: 1rem 2rem;
+        width: 100%;
+        max-width: 300px;
+    }
+}
 
-  .hero-section p {
-    font-size: 1rem;
-  }
+/* Header Integration for Landing */
+.landing-body header {
+    background: transparent;
+    background-image: none;
+    box-shadow: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: auto;
+    padding-top: 2rem;
+    z-index: 10;
+}
+
+/* Fix Logo Size */
+.landing-body header a {
+    height: 70px; /* Altura fija para el contenedor del logo */
+    display: block;
+}
+
+.landing-body header .logo {
+    height: 100%;
+    width: auto; /* Mantener proporción */
+}
+
+/* Adaptar logo si es SVG inline */
+.landing-body header svg,
+.landing-body header svg path {
+    fill: var(--azul-marginlab) !important;
+}
+
+.landing-body header a {
+    color: var(--azul-marginlab);
+}
+
+/* Footer Integration for Landing */
+.landing-body footer {
+    background-color: rgba(51, 51, 51, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: var(--gris3);
+    font-size: 0.9rem;
+    height: 30px;
+    position: relative;
+    z-index: 10;
 }

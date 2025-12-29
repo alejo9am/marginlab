@@ -7,31 +7,31 @@ $pdo = require_once __DIR__ . "/../config/bootstrap.php";
 <html lang="es">
 
 <?php
-$title_name = "Bienvenido a MarginLab";
+$title_name = "MarginLab - Control de Márgenes";
 $page_css = "home.css";
 require_once BASE_DIR . "/api/templates/head.php";
 ?>
 
-<body>
+<body class="landing-body">
 
   <?php require_once BASE_DIR . "/api/templates/header.php" ?>
 
-  <main class="landing">
+  <main class="landing-container">
 
-    <section class="hero-section">
-      <h1>Bienvenido a <span>MarginLab</span></h1>
+    <section class="hero-content">
+      <h1 class="hero-title">Control total sobre tus <br>márgenes comerciales</h1>
 
-      <p>
-        Herramienta de análisis y cálculo de márgenes comerciales.
-        Optimiza presupuestos, controla costes y asegura la rentabilidad
-        de tus operaciones en tiempo real.
-        <br><br>
-        <em>Versión Open Source para demostración técnica.</em>
+      <p class="hero-subtitle">
+        Automatiza cálculos complejos de descuentos en cascada y rappels. <br>
+        Una adaptación pública de software real para demostración técnica.
       </p>
 
-      <a href="<?= BASE_URL ?>/actions/initSandbox.php" class="cta-button">
-        Iniciar MarginLab Playground 🚀
-      </a>
+      <div class="cta-wrapper">
+        <a href="<?= BASE_URL ?>/actions/initSandbox.php" class="btn-primary-lg">
+          Iniciar Demo Privada
+        </a>
+        <p class="micro-copy">Sin registro • Sesión aislada y segura • Datos efímeros</p>
+      </div>
     </section>
 
   </main>
