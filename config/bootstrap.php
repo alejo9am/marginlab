@@ -70,11 +70,10 @@ if (!isset($_SESSION['sandbox_prefix']) && isset($_COOKIE['marginlab_token'])) {
 }
 
 // SEGURIDAD SANDBOX (Aislamiento de Usuarios)
-// Si estamos en modo demo, vigilamos las peticiones
 if (isset($_SESSION['sandbox_prefix'])) {
   $prefix = $_SESSION['sandbox_prefix'];
 
-  // Lista de parámetros que suelen llevar IDs en tu app
+  // Lista de parámetros que suelen llevar IDs
   $params_to_check = ['id', 'cod_presupuesto', 'cod_oferta'];
 
   // Función anónima para inyectar seguridad en un valor

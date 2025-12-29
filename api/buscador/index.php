@@ -14,7 +14,7 @@ try {
     $query = "SELECT DISTINCT SUBSTRING(cod_presupuesto, LENGTH(:prefix) + 1) as id_visual 
                   FROM presupuestos 
                   WHERE cod_presupuesto LIKE :pattern 
-                  ORDER BY cod_presupuesto ASC";
+                  ORDER BY id_visual ASC";
 
     $stmt = $pdo->prepare($query);
     $stmt->execute([
@@ -36,7 +36,7 @@ if (isset($_POST['cod_presupuesto'])) {
   $cod_presupuesto = limpiar_dato($_POST['cod_presupuesto']);
 
   //consulta para contar las distintas versiones del presupuesto
-  $query = "SELECT count(DISTINCT version) FROM articulos WHERE cod_presupuesto = :cod_presupuesto";
+  $query = "SELECT count(DISTINCT version) FROM presupuestos WHERE cod_presupuesto = :cod_presupuesto";
 
   // Preparar y ejecutar la consulta con PDO
   $stmt = $pdo->prepare($query);
