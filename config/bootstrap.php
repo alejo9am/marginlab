@@ -16,7 +16,9 @@ use Dotenv\Dotenv;
 // Cargar las variables del archivo .env
 try {
     $dotenv = Dotenv::createImmutable(BASE_DIR);
-    $dotenv->load();
+  if (file_exists(BASE_DIR . '/.env')) {
+    $dotenv->load(); // Léelo y llena $_ENV
+  }
 } catch (Exception $e) {
     die("Error: No se pudo cargar el archivo .env (Revisa que el archivo exista en la raíz)");
 }
