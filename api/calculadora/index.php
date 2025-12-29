@@ -37,12 +37,11 @@ try {
   $stmt = $pdo->prepare($query);
   $stmt->execute([':id' => $id]);
   $versiones = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  
+
   // Si no existe el presupuesto o la versión, redirigir a errores
   if (!$presupuesto || $nart == 0) {
     redirigir("errores");
   }
-  
 } catch (PDOException $e) {
   error_log("Error en calculadora: " . $e->getMessage());
   redirigir("errores");
@@ -117,7 +116,7 @@ $alertaRappel = false;
 <?php
 $title_name = "Calculadora - Presupuesto $id_visual";
 $page_css = "modules/calculadora.css";
-require_once BASE_DIR . "/web/templates/head.php";
+require_once BASE_DIR . "/api/templates/head.php";
 ?>
 
 <!--IMPORTACIÓN DE LOS SCRIPTS-->
@@ -311,7 +310,7 @@ require_once BASE_DIR . "/web/templates/head.php";
 
 <body>
 
-  <?php require_once BASE_DIR . "/web/templates/header.php" ?>
+  <?php require_once BASE_DIR . "/api/templates/header.php" ?>
 
 
   <main>
@@ -329,7 +328,7 @@ require_once BASE_DIR . "/web/templates/head.php";
           <form id='formVersiones' method='post'>
             <select id='selectVersion' name='version'>
               <?php foreach ($versiones as $v) { ?>
-                <option value="<?= $v['version'] ?>" <?= ($v['version'] == $version) ? "selected" : "" ?> >
+                <option value="<?= $v['version'] ?>" <?= ($v['version'] == $version) ? "selected" : "" ?>>
                   Versión <?= $v['version'] ?>
                 </option>
               <?php } ?>
@@ -632,9 +631,12 @@ require_once BASE_DIR . "/web/templates/head.php";
               <td id='c20' class="calculado"> <?= $data[$i]['bsv_porc_fact'] ?> </td> <!--Factura-->
               <td id='c21' class="calculado"> <?= $data[$i]['bsv_porc_rappel'] ?> </td> <!--Rappel-->
 
-            </tr>
+              </tr>
 
-            <script>calcLine(<?= $i ?>);formatLine(<?= $i ?>);</script>
+              <script>
+                calcLine(<?= $i ?>);
+                formatLine(<?= $i ?>);
+              </script>
 
             <?php } ?>
 
@@ -666,10 +668,10 @@ require_once BASE_DIR . "/web/templates/head.php";
       <div class="observaciones">
         <label for="obsComercial">Observaciones del comercial</label>
         <textarea id="obsComercial" name="obsComercial" rows="10" cols="50" placeholder="Escribe tus observaciones aquí..."><?php
-            if ($presupuesto['obs_comercial'] !== null && $presupuesto['obs_comercial'] !== "") {
-              echo htmlspecialchars(trim($presupuesto['obs_comercial']));
-            }
-          ?></textarea>
+                                                                                                                            if ($presupuesto['obs_comercial'] !== null && $presupuesto['obs_comercial'] !== "") {
+                                                                                                                              echo htmlspecialchars(trim($presupuesto['obs_comercial']));
+                                                                                                                            }
+                                                                                                                            ?></textarea>
       </div>
       <div class="botones">
         <?php if ($version > 1) { ?>
@@ -699,10 +701,10 @@ require_once BASE_DIR . "/web/templates/head.php";
       <div class="observaciones">
         <label for="obsRevision">Observaciones de revisión</label>
         <textarea id="obsRevision" name="obsRevision" rows="10" cols="50" placeholder="Escribe tus observaciones aquí..."><?php
-            if ($presupuesto['obs_revision'] !== null && $presupuesto['obs_revision'] !== "") {
-              echo htmlspecialchars(trim($presupuesto['obs_revision']));
-            }
-            ?></textarea>
+                                                                                                                          if ($presupuesto['obs_revision'] !== null && $presupuesto['obs_revision'] !== "") {
+                                                                                                                            echo htmlspecialchars(trim($presupuesto['obs_revision']));
+                                                                                                                          }
+                                                                                                                          ?></textarea>
       </div>
     </section>
 
@@ -936,5 +938,7 @@ require_once BASE_DIR . "/web/templates/head.php";
   </dialog>
 
 </body>
+
+<?php require_once BASE_DIR . "/api/templates/footer.php" ?>
 
 </html>

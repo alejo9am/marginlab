@@ -64,12 +64,12 @@ if (isset($_POST['cod_presupuesto'])) {
 <?php
 $title_name = "Buscador de Presupuestos";
 $page_css = "modules/buscador.css";
-require_once BASE_DIR . "/web/templates/head.php";
+require_once BASE_DIR . "/api/templates/head.php";
 ?>
 
 <body>
 
-  <?php require_once BASE_DIR . "/web/templates/header.php" ?>
+  <?php require_once BASE_DIR . "/api/templates/header.php" ?>
   <main>
     <section class="sect">
       <form id="formBusqueda" method="post" action="./index.php">
@@ -97,7 +97,7 @@ require_once BASE_DIR . "/web/templates/head.php";
 
   </main>
 
-  <?php require_once BASE_DIR . "/web/templates/footer.php" ?>
+  <?php require_once BASE_DIR . "/api/templates/footer.php" ?>
 
 </body>
 

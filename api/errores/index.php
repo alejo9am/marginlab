@@ -10,12 +10,12 @@ $pdo = require_once __DIR__ . "/../../config/bootstrap.php";
 <?php
   $title_name = "Error - MarginLab";
   $page_css = "modules/errores.css";
-  require_once BASE_DIR . "/web/templates/head.php";
+  require_once BASE_DIR . "/api/templates/head.php";
 ?>
 
 <body>
 
-  <?php require_once BASE_DIR . "/web/templates/header.php" ?>
+  <?php require_once BASE_DIR . "/api/templates/header.php" ?>
 
   <main>
     
@@ -31,7 +31,7 @@ $pdo = require_once __DIR__ . "/../../config/bootstrap.php";
 
   </main>
 
-  <?php require_once BASE_DIR . "/web/templates/footer.php" ?>
+  <?php require_once BASE_DIR . "/api/templates/footer.php" ?>
 
 </body>
 

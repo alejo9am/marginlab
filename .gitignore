@@ -5,4 +5,4 @@ configuracion_marginlab.md
 .DS_Store
 .idea/
 .vscode/
-/web/img/banner.html
+/public/img/banner.html

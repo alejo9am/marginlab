@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="web/img/banner.png" alt="MarginLab Dashboard" width="100%">
+  <img src="public/img/banner.png" alt="MarginLab Dashboard" width="100%">
 </p>
 
 <p align="center">
