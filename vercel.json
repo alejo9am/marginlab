@@ -1,0 +1,19 @@
+{
+  "functions": {
+    "public/actions/**/*.php": {
+      "runtime": "vercel-php@0.6.0"
+    },
+    "public/**/*.php": {
+      "runtime": "vercel-php@0.6.0"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ],
+  "env": {
+    "APP_ENV": "production"
+  }
+}

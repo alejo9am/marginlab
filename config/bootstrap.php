@@ -34,10 +34,10 @@ if ($_ENV['APP_ENV'] === 'local') {
   ini_set('display_startup_errors', 0);
 }
 
-// Crear conexión a la base de datos con PDO usando $_ENV
+// Crear conexión a la base de datos con PDO usando $_ENV INCLUYENDO el puerto
 try {
     
-    $dsn = "mysql:host=" . $_ENV['DB_HOST'] . ";dbname=" . $_ENV['DB_NAME'] . ";charset=utf8mb4";
+    $dsn = "mysql:host=" . $_ENV['DB_HOST'] . ";port=" . $_ENV['DB_PORT'] . ";dbname=" . $_ENV['DB_DATABASE'] . ";charset=utf8mb4";
     
     $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -45,7 +45,7 @@ try {
         PDO::ATTR_EMULATE_PREPARES => false,
     ];
 
-    $pdo = new PDO($dsn, $_ENV['DB_USER'], $_ENV['DB_PASS'], $options);
+    $pdo = new PDO($dsn, $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $options);
 
 } catch (PDOException $e) {
   error_log('DB Connection Error: ' . $e->getMessage());

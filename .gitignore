@@ -1,8 +1,8 @@
-/config/.env
 /vendor
-/node_modules/
 .env
+.env.server
 configuracion_marginlab.md
 .DS_Store
 .idea/
 .vscode/
+/public/img/banner.html
