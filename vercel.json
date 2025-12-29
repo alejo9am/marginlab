@@ -14,6 +14,26 @@
       "dest": "/api/actions/$1"
     },
     {
+      "src": "/buscador",
+      "dest": "/api/buscador/index.php"
+    },
+    {
+      "src": "/buscador/(.*)",
+      "dest": "/api/buscador/$1"
+    },
+    {
+      "src": "/calculadora",
+      "dest": "/api/calculadora/index.php"
+    },
+    {
+      "src": "/calculadora/(.*)",
+      "dest": "/api/calculadora/$1"
+    },
+    {
+      "src": "/errores",
+      "dest": "/api/errores/index.php"
+    },
+    {
       "src": "/(.*)",
       "dest": "/api/index.php"
     }
