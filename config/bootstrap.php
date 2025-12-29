@@ -119,5 +119,3 @@ if (isset($_SESSION['sandbox_prefix'])) {
 }
 
 return $pdo;
-
-?>

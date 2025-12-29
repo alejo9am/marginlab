@@ -1,0 +1,29 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Assets routes (css, img, javascript) -> public/
+    RewriteRule ^(css|img|javascript)/(.*)$ public/$1/$2 [L]
+
+    # API Actions
+    RewriteRule ^actions/(.*)$ api/actions/$1 [L]
+
+    # Buscador
+    RewriteRule ^buscador/?$ api/buscador/index.php [L]
+    RewriteRule ^buscador/(.*)$ api/buscador/$1 [L]
+
+    # Calculadora
+    RewriteRule ^calculadora/?$ api/calculadora/index.php [L]
+    RewriteRule ^calculadora/(.*)$ api/calculadora/$1 [L]
+
+    # Errores
+    RewriteRule ^errores/?$ api/errores/index.php [L]
+
+    # Root URL
+    RewriteRule ^$ api/index.php [L]
+
+    # Catch-all: If not a file or directory, send to api/index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ api/index.php [L]
+</IfModule>
