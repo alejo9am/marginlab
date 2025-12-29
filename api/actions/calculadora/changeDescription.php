@@ -2,7 +2,7 @@
 
 //PHP para cambiar el nombre de la version
     
-$pdo = require_once "../../../config/bootstrap.php";
+$pdo = require_once __DIR__ . "/../../../config/bootstrap.php";
 
 $version = limpiar_dato($_POST['version']); //version de la oferta
 $cod_presupuesto = limpiar_dato($_POST['id']); //id de la oferta

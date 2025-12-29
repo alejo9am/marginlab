@@ -1,6 +1,6 @@
 <?php
 
-$pdo = require_once "../../config/bootstrap.php";
+$pdo = require_once __DIR__ . "/../../config/bootstrap.php";
 
 $id = limpiar_dato($_GET['id']);
 $id_visual = limpiar_dato($_GET['id_visual'] ?? $id);

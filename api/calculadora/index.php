@@ -1,6 +1,6 @@
 <?php
 
-$pdo = require_once  "../../config/bootstrap.php";
+$pdo = require_once __DIR__ . "/../../config/bootstrap.php";
 
 //redirigir a buscador si no hay info en $_GET
 if (!isset($_GET['id'])) redirigir("/buscador");
