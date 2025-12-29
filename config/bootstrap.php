@@ -39,15 +39,18 @@ if ($_ENV['APP_ENV'] === 'local') {
 // Crear conexión a la base de datos con PDO usando $_ENV INCLUYENDO el puerto
 try {
     
-    $dsn = "mysql:host=" . $_ENV['DB_HOST'] . ";port=" . $_ENV['DB_PORT'] . ";dbname=" . $_ENV['DB_DATABASE'] . ";charset=utf8mb4";
-    
-    $options = [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
-    ];
+  $dsn = "mysql:host=" . $_ENV['DB_HOST'] . ";port=" . $_ENV['DB_PORT'] . ";dbname=" . $_ENV['DB_DATABASE'] . ";charset=utf8mb4";
 
-    $pdo = new PDO($dsn, $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $options);
+  $options = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+    // Añade estas líneas para TiDB:
+    PDO::MYSQL_ATTR_SSL_CA => '', // Forzar SSL
+    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false, // No verificar estrictamente el certificado (vital para Vercel/TiDB a veces)
+  ];
+
+  $pdo = new PDO($dsn, $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $options);
 
 } catch (PDOException $e) {
   error_log('DB Connection Error: ' . $e->getMessage());
