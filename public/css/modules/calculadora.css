@@ -353,6 +353,48 @@ dialog{
     }
 }
 
+.dialog-simulation[open]{
+    padding: 50px 40px;
+    border: none !important;
+    border-radius: 15px;
+    background-color: var(--white);
+    outline: none;
+    
+    min-width: 450px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.dialog-simulation[open] .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 22px;
+    color: var(--warning);
+    font-weight: 700;
+}
+
+.dialog-simulation[open] .title svg{
+    height: 32px;
+    width: 32px;
+}
+
+.dialog-simulation[open] .main{
+    text-align: center;
+    font-size: 18px;
+    color: var(--black);
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
 .dialog-correo[open]{
 
     border: none;

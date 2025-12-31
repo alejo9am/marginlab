@@ -266,7 +266,7 @@ require_once BASE_DIR . "/api/templates/head.php";
       //estilar para dar cursor de ayuda
       col.style.cursor = 'pointer';
       col.addEventListener('click', function() {
-        document.querySelector('dialog').showModal(); //muestra el dialogo de explicacion de los warnings
+        document.querySelector('.dialog-warning').showModal(); //muestra el dialogo de explicacion de los warnings
       });
     });
 
@@ -764,7 +764,7 @@ require_once BASE_DIR . "/api/templates/head.php";
 
   <?php if ($alertaNeto || $alertaRappel) { ?>
     <script>
-      document.querySelector('dialog').showModal(); //muestra el dialogo de alertas al cargar la página
+      document.querySelector('.dialog-warning').showModal(); //muestra el dialogo de alertas al cargar la página
     </script>
   <?php } ?>
 
@@ -939,14 +939,14 @@ require_once BASE_DIR . "/api/templates/head.php";
 
   </dialog>
 
-  <dialog class="dialog-simulation" style="padding: 40px; border: none; outline: none; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; gap: 30px;">
+  <dialog class="dialog-simulation">
     <button id="cross-button" onclick="this.parentElement.close()">
       <svg id="cross" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15">
         <path fill="currentColor" d="M3.64 2.27L7.5 6.13l3.84-3.84A.92.92 0 0 1 12 2a1 1 0 0 1 1 1a.9.9 0 0 1-.27.66L8.84 7.5l3.89 3.89A.9.9 0 0 1 13 12a1 1 0 0 1-1 1a.92.92 0 0 1-.69-.27L7.5 8.87l-3.85 3.85A.92.92 0 0 1 3 13a1 1 0 0 1-1-1a.9.9 0 0 1 .27-.66L6.16 7.5L2.27 3.61A.9.9 0 0 1 2 3a1 1 0 0 1 1-1c.24.003.47.1.64.27" />
       </svg>
     </button>
 
-    <div class="title" style="display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 20px; color: var(--warning); font-weight: 700;">
+    <div class="title">
       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle">
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
@@ -956,7 +956,7 @@ require_once BASE_DIR . "/api/templates/head.php";
       <h3>Funcionalidad no disponible</h3>
     </div>
 
-    <div class="main" style="text-align: center; font-size: 18px; color: var(--black); font-weight: 500; padding: 0 20px;">
+    <div class="main">
       <p>Al ser una simulación de la herramienta real, el envío de correos está deshabilitado.</p>
     </div>
   </dialog>
